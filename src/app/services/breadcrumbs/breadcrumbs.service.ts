@@ -41,8 +41,6 @@ export class BreadcrumbsService implements OnDestroy {
     let url: string = '';
     const breadcrumbsTemp: BreadcrumbInterface[] = [];
 
-    console.log(currentRoute.children);
-
     do {
       const childrenRoutes: ActivatedRoute[] = this.getRoutesBySpecifcOutlet(
         currentRoute.children,
