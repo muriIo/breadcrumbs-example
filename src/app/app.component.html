@@ -1,0 +1,27 @@
+<header>
+  <nav>
+    <ul>
+      <ng-container
+        *ngFor="let breadcrumb of breadcrumbs$ | async; let last = last"
+      >
+        <ng-container *ngIf="!last; else lastBreadcrumb">
+          <a (click)="navigateToBreadcrumb(breadcrumb.url)">
+            {{ breadcrumb.label }}
+          </a>
+          >
+        </ng-container>
+        <ng-template #lastBreadcrumb>
+          <span>{{ breadcrumb.label }}</span>
+        </ng-template>
+      </ng-container>
+    </ul>
+  </nav>
+</header>
+<main>
+  <div>
+    <button type="button" (click)="navigate('profile')">Go to profile</button>
+
+    <button type="button" (click)="navigate('store')">Go to store</button>
+  </div>
+  <router-outlet></router-outlet>
+</main>
